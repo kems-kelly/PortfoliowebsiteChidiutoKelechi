@@ -1,17 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import './Navbar.css';
 import logo from '../assets/logo.png';
-
-// User's CV location
 import cvFile from '../assets/kema-cv.pdf';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const isContact = location.pathname === '/contact';
   
   useEffect(() => {
     const handleScroll = () => {
@@ -23,22 +18,34 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const navLinks = [
+    { name: 'WORK', href: '#work' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'CONTACT', href: '#contact' },
+  ];
+
   return (
-    <header className={`navbar ${isContact ? 'is-contact' : ''} ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <Link to="/" className="nav-logo">
+        <a href="#home" className="nav-logo" onClick={() => setIsOpen(false)}>
           <img src={logo} className='logo' alt="logo" />
-        </Link>
+        </a>
         
         <nav className={`nav-links ${isOpen ? 'active' : ''}`}>
-          <Link to="/projects" onClick={() => setIsOpen(false)}>WORK</Link>
-          <Link to="/about" onClick={() => setIsOpen(false)}>ABOUT</Link>
-          <Link to="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
         </nav>
 
         <div className="nav-actions">
           <a href={cvFile} download className="nav-download-btn">
-            DOWNLOAD CV <ArrowDown size={14} strokeWidth={2.5} />
+            CV <ArrowDown size={14} strokeWidth={2.5} />
           </a>
           <button className="mobile-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}

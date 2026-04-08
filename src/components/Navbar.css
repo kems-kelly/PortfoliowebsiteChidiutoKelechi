@@ -10,77 +10,45 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(232, 230, 223, 0.8);
+  background-color: var(--color-bg-primary);
   backdrop-filter: blur(10px);
   padding: var(--space-4) 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.navbar.is-contact.scrolled {
-  background-color: rgba(5, 5, 5, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .nav-container {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-
-.nav-logo img{
-  width: 200px;
-  height: 60px;
+.nav-logo img {
+  width: 150px;
+  height: auto;
 }
 
 .nav-links {
   display: flex;
   gap: var(--space-8);
-  justify-content: center;
+  align-items: center;
 }
 
 .nav-links a {
   font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 2px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   color: var(--color-text-secondary);
   transition: color var(--transition-fast);
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-links a:hover {
   color: var(--color-text-primary);
 }
 
-/* Dark theme specific styles (for Contact page) */
-.navbar.is-contact .nav-links a {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.navbar.is-contact .nav-links a:hover {
-  color: #ffffff;
-}
-
-.navbar.is-contact .nav-logo img {
-  filter: invert(1) brightness(1.5);
-}
-
-.navbar.is-contact .nav-download-btn {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.navbar.is-contact .nav-download-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar.is-contact .mobile-toggle {
-  color: #ffffff;
-}
-
 .nav-actions {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: var(--space-4);
 }
@@ -90,19 +58,22 @@
   align-items: center;
   gap: var(--space-2);
   padding: 0.6rem 1.25rem;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
   color: var(--color-text-primary);
   background: transparent;
   transition: all var(--transition-fast);
   text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-download-btn:hover {
-  background: rgba(0,0,0,0.05);
+  background: #000;
+  color: white;
+  border-color: #000;
 }
 
 .mobile-toggle {
@@ -111,22 +82,11 @@
   border: none;
   color: var(--color-text-primary);
   cursor: pointer;
-  padding: var(--space-1);
 }
 
 @media (max-width: 900px) {
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .nav-download-btn {
-    display: none; /* Hide on small screens or move into menu */
-  }
-
   .mobile-toggle {
-    display: flex;
-    align-items: center;
+    display: block;
   }
 
   .nav-links {
@@ -137,29 +97,18 @@
     background-color: var(--color-bg-primary);
     border-bottom: 1px solid var(--color-border);
     flex-direction: column;
-    padding: var(--space-4);
-    gap: var(--space-4);
-    transform: translateY(-150%);
+    padding: var(--space-8);
+    gap: var(--space-6);
+    transform: translateY(-100%);
     opacity: 0;
-    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    pointer-events: none;
+    transition: all var(--transition-normal);
   }
 
   .nav-links.active {
     transform: translateY(0);
     opacity: 1;
-  }
-
-  /* Theme-aware Mobile Menu for Contact Page */
-  .navbar.is-contact .nav-links {
-    background-color: #050505;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .navbar.is-contact .nav-links a {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .navbar.is-contact .nav-links a:hover {
-    color: #ffffff;
+    pointer-events: all;
   }
 }
+

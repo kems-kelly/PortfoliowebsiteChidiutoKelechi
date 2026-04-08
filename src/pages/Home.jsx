@@ -36,7 +36,7 @@ const Home = () => {
         <div className="hero-content-left">
           
           <div className="hero-buttons-wrapper">
-            <a href="mailto:contact@example.com" className="btn btn-black">LET'S TALK</a>
+            <a href="#contact" className="btn btn-black">BOOK A CALL</a>
             <a href={cvFile} download className="btn btn-outline">
               DOWNLOAD CV <ArrowDown size={14} strokeWidth={2.5} />
             </a>

@@ -135,10 +135,7 @@ const Contact = () => {
 
       <footer className="contact-premium-footer">
         <div className="container footer-grid">
-          <div className="footer-left">
-            <h2 className="footer-logo-text">KEMA</h2>
-            <p className="footer-copy">© 2026 DESIGNED & BUILT BY KEMA</p>
-          </div>
+         
           
           <div className="footer-links-group">
             <span className="footer-label">SOCIAL</span>

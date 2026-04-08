@@ -1,288 +1,151 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowUpRight } from 'lucide-react';
 import './Projects.css';
 
-gsap.registerPlugin(ScrollTrigger);
 
-import frame from '../assets/frame.png';
-import healthaxis from '../assets/healthaxis.png';
-import body from '../assets/body.png';
-import velauraImg from '../assets/velaura.png';
-
+// Project Data
 const caseStudies = [
   {
     id: '01',
-    year: '2023',
-    title: 'KoloFunds',
-    tags: 'Save Strictly, Live Freely',
-    description: 'Designed KoloFunds as a simple, goal-based savings platform that makes saving effortless. Focused on clean visuals, quick setup, and gentle nudges to encourage habit formation. The result an intuitive experience that helps users save strictly and stay consistent without overthinking it.',
-    image: frame,
-    link: 'https://www.behance.net/gallery/232525501/KoloFund-Fintech-Savings-App'
+    title: "FinPay — Mobile Banking Reimagined",
+    desc: "End-to-end redesign of a digital banking experience for 2M+ users, focusing on trust, clarity, and speed.",
+    tags: ["UX RESEARCH", "PRODUCT DESIGN", "FINTECH"],
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200",
+    link: "#"
   },
   {
     id: '02',
-    year: '2023',
-    title: 'Health Axis',
-    tags: 'UI/UX DESIGN - Hospital Management System',
-    description: ' Hospital staff struggled with scattered patient data, slow record updates, and inefficient communication between departments. Manual workflows caused delays in patient care and administrative errors.',
-    image: healthaxis,
-    link: 'https://www.behance.net/gallery/234250419/Seamless-Patient-and-Hospital-Management-System-(SaaS)'
-  },
-  {
-    id: '03',
-    year: '2025',
-    title: 'Velaura',
-    tags: 'WEB DESIGN - BRANDING',
-    description: 'Singapore\'s Premier Curtain Atelier — designed and built end-to-end.',
-    image: velauraImg,
-    link: '#'
+    title: "Vitality — Wellness Tracking App",
+    desc: "A holistic health tracking platform that makes wellbeing data feel personal and actionable.",
+    tags: ["UX DESIGN", "MOBILE", "HEALTHTECH"],
+    image: "https://images.unsplash.com/photo-1576091160550-217359f41f48?auto=format&fit=crop&q=80&w=1200",
+    link: "#"
   }
 ];
+
 const frontendProjects = [
   {
     id: '01',
-    year: '2023',
-    title: 'KoloFunds',
-    tags: 'Save Strictly, Live Freely',
-    description: 'Designed KoloFunds as a simple, goal-based savings platform that makes saving effortless. Focused on clean visuals, quick setup, and gentle nudges to encourage habit formation. The result an intuitive experience that helps users save strictly and stay consistent without overthinking it.',
-    image: frame,
-    link: 'https://kolofunds.framer.website/'
-  },
-  {
-    id: '02',
-    year: '2023',
-    title: 'Uppsala Security',
-    tags: 'UI/UX DESIGN - CYBERSECURITY',
-    description: 'Clean, data-dense interface design for a leading blockchain cybersecurity platform.',
-    image: healthaxis,
-    link: '#'
-  },
-  {
-    id: '03',
-    year: '2025',
-    title: 'Travel Website',
-    tags: 'WanderLux A Travel Experience Website',
-    description: 'WanderLux is a travel experience platform designed to inspire, plan, and connect travelers with the world’s most captivating destinations.',
-    image: body,
-    link: 'https://kems-kelly.github.io/Travelwebsite/'
+    title: "Atmosphere — Weather Dashboard",
+    desc: "A high-performance weather visualization tool built with React and GSAP, featuring real-time data sync.",
+    tags: ["REACT", "GSAP", "API INTEGRATION"],
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=1200",
+    link: "#"
   }
 ];
-const experiences = [
- {
+
+const designProjects = [
+  {
     id: '01',
-    company: 'NaliTech Consult',
-    role: 'PRODUCT DESIGN • FRONTEND ENGINEERING',
-    description:
-      'Designed and built user-centered digital products from concept to deployment. Led UI/UX design, prototyping, and frontend development to create responsive, scalable interfaces that improved usability, performance, and user engagement across multiple client projects.',
-    pills: ['UI DESIGN', 'UX RESEARCH', 'RESPONSIVE WEB', 'SEO OPTIMIZATION'],
-    tools: ['FIGMA', 'WEBFLOW', 'REACT', 'NEXTJS', 'TAILWIND CSS', 'JAVASCRIPT', 'GIT'],
-    date: '2020 — PRESENT',
-    linkText: 'VIEW PROJECTS →',
-    linkUrl: 'https://kems-kelly.github.io/KellyemaPortfolio/'
-  },
-
-  {
-    id: '02',
-    company: 'Digital Bridge Institute',
-    role: 'ICT SUPPORT • TECHNICAL TRAINING',
-    description:
-      'Provided technical support and assisted in delivering hands-on ICT training. Collaborated with instructors to improve learning delivery, troubleshoot systems, and support students in practical lab environments.',
-    pills: ['TECH SUPPORT', 'NETWORKING', 'TRAINING', 'TROUBLESHOOTING'],
-    tools: ['SYSTEM SUPPORT', 'NETWORKING', 'MICROSOFT TOOLS', 'HARDWARE'],
-    date: '2019 — 2020',
-    linkText: 'COMPLETED',
-    linkUrl: '#'
-  },
-
-  {
-    id: '03',
-    company: 'Geolin Tech',
-    role: 'UI/UX DESIGN • FRONTEND DEVELOPMENT',
-    description:
-      'Worked on early-stage digital products, contributing to UI design and frontend implementation. Focused on building clean, user-friendly interfaces while strengthening core skills in responsive design, usability, and modern web development practices.',
-    pills: ['UI DESIGN', 'RESPONSIVE WEB', 'FRONTEND BASICS', 'FOUNDATION'],
-    tools: ['HTML', 'CSS', 'JAVASCRIPT', 'FIGMA', 'GIT'],
-    date: '2018 — 2019',
-    linkText: 'FOUNDATION ROLE',
-    linkUrl: '#'
+    title: "Minimalist Brand Identity",
+    desc: "A complete visual identity overhaul for a sustainable tech startup, focusing on digital-first assets.",
+    tags: ["BRANDING", "VISUAL DESIGN", "STRATEGY"],
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=1200",
+    link: "#"
   }
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
-  const containerRef = useRef(null);
+  const [activeTab, setActiveTab] = useState('case-studies');
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Headers
-      gsap.from('.experience-header', { 
-        y: 50, opacity: 0, duration: 0.8, ease: 'power3.out' 
+      gsap.from('.projects-title', {
+        scrollTrigger: {
+          trigger: '.projects-header',
+          start: 'top 80%',
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out'
       });
-      
-      gsap.from('.case-studies-header', { 
-        scrollTrigger: { trigger: '.case-studies-section', start: 'top 80%' },
-        y: 50, opacity: 0, duration: 0.8, ease: 'power3.out' 
-      });
-
-      gsap.from('.frontend-products-header', { 
-        scrollTrigger: { trigger: '.frontend-products-section', start: 'top 80%' },
-        y: 50, opacity: 0, duration: 0.8, ease: 'power3.out' 
-      });
-
-      // List Items Loop
-      gsap.utils.toArray('.experience-item').forEach((item, i) => {
-        gsap.from(item, {
-          scrollTrigger: { trigger: item, start: 'top 90%' },
-          y: 40, opacity: 0, duration: 0.7, delay: 0.1, ease: 'power3.out'
-        });
-      });
-
-      gsap.utils.toArray('.case-study-card').forEach((card, i) => {
-        gsap.from(card, {
-          scrollTrigger: { trigger: card, start: 'top 90%' },
-          y: 40, opacity: 0, duration: 0.7, delay: 0.1, ease: 'power3.out'
-        });
-      });
-
-      gsap.utils.toArray('.frontend-product-card').forEach((card, i) => {
-        gsap.from(card, {
-          scrollTrigger: { trigger: card, start: 'top 90%' },
-          y: 40, opacity: 0, duration: 0.7, delay: 0.1, ease: 'power3.out'
-        });
-      });
-    }, containerRef);
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  return (
-    <div className="projects-page" ref={containerRef}>
-     
+  const getProjects = () => {
+    switch (activeTab) {
+      case 'case-studies': return caseStudies;
+      case 'frontend': return frontendProjects;
+      case 'design': return designProjects;
+      default: return caseStudies;
+    }
+  };
 
-      <section className="experience-section">
-        <div className="container">
-        <div className="experience-header">
-          <h1 className="experience-title">
-            Work <br />
-            Experience
-          </h1>
+  return (
+    <section id="work" className="projects-section" ref={sectionRef}>
+      <div className="container">
+        <div className="projects-header">
+          <div className="projects-header-top">
+            <span className="section-label">SELECTED WORK</span>
+            <div className="projects-tabs">
+              <button 
+                className={`tab-btn ${activeTab === 'case-studies' ? 'active' : ''}`}
+                onClick={() => setActiveTab('case-studies')}
+              >
+                CASE STUDIES
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'frontend' ? 'active' : ''}`}
+                onClick={() => setActiveTab('frontend')}
+              >
+                FRONTEND
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'design' ? 'active' : ''}`}
+                onClick={() => setActiveTab('design')}
+              >
+                DESIGN
+              </button>
+            </div>
+          </div>
+          <h2 className="projects-title">Projects that matter.</h2>
         </div>
 
-        <div className="experience-list">
-          {experiences.map((exp, index) => (
-            <div 
-              className="experience-item"
-              key={exp.id}
+        <div className="projects-list">
+          {getProjects().map((project, index) => (
+            <motion.div 
+              className="project-list-item" 
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="exp-number">
-                <span>{exp.id}</span>
-              </div>
+              <div className="project-index">{project.id}</div>
               
-              <div className="exp-company-col">
-                <h2 className="exp-company">{exp.company}</h2>
-                <p className="exp-role">{exp.role}</p>
+              <div className="project-image-container">
+                <img src={project.image} alt={project.title} className="project-list-img" />
               </div>
-              
-              <div className="exp-details-col">
-                <p className="exp-description">{exp.description}</p>
-                <div className="exp-pills">
-                  {exp.pills.map((pill, i) => (
-                    <span key={i} className="exp-pill">{pill}</span>
-                  ))}
-                </div>
-                <div className="exp-tools">
-                  {exp.tools.map((tool, i) => (
-                    <span key={i} className="exp-tool">{tool}</span>
+
+              <div className="project-info">
+                <h3 className="project-list-title">{project.title}</h3>
+                <p className="project-list-desc">{project.desc}</p>
+                <div className="project-list-tags">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="tag-text">{tag}</span>
                   ))}
                 </div>
               </div>
-              
-              <div className="exp-meta-col">
-                <p className="exp-date">{exp.date}</p>
-                {exp.linkUrl ? (
-                  <a href={exp.linkUrl} className="exp-link">
-                    {exp.linkText}
-                  </a>
-                ) : (
-                  <span className="exp-status">{exp.linkText}</span>
-                )}
-              </div>
-            </div>
+
+              <Link to={`/project/${project.id}`} className="project-view-link">
+                VIEW <ArrowUpRight size={20} />
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-     <section className="case-studies-section">
-        <div className="container">
-          <div className="case-studies-header">
-            <h1 className="case-studies-title">
-              Case<br />Studies
-            </h1>
-            <span className="case-studies-subtitle">SELECTED WORK</span>
-          </div>
-
-          <div className="case-studies-grid">
-            {caseStudies.map((study, index) => (
-              <div 
-                className="case-study-card"
-                key={study.id}
-              >
-                <div className="cs-image-wrapper">
-                  <img src={study.image} alt={study.title} className="cs-image" />
-                </div>
-                
-                <div className="cs-meta-row">
-                  <span className="cs-number">{study.id}</span>
-                  <span className="cs-year">{study.year}</span>
-                </div>
-                
-                <h3 className="cs-title">{study.title}</h3>
-                <p className="cs-tags">{study.tags}</p>
-                <p className="cs-description">{study.description}</p>
-                
-                <a href={study.link} className="cs-link">VIEW CASE STUDY &rarr;</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="frontend-products-section">
-        <div className="container">
-          <div className="frontend-products-header">
-            <h1 className="frontend-products-title">
-              Building scalable front-<br />end products
-            </h1>
-            <span className="frontend-products-subtitle">SELECTED WORK</span>
-          </div>
-
-          <div className="frontend-products-grid">
-            {frontendProjects.map((project, index) => (
-              <div 
-                className="frontend-product-card"
-                key={project.id}
-              >
-                <div className="fp-image-wrapper">
-                  <img src={project.image} alt={project.title} className="fp-image" />
-                </div>
-                
-                <div className="fp-meta-row">
-                  <span className="fp-number">{project.id}</span>
-                  <span className="fp-year">{project.year}</span>
-                </div>
-                
-                <h3 className="fp-title">{project.title}</h3>
-                <p className="fp-tags">{project.tags}</p>
-                <p className="fp-description">{project.description}</p>
-                
-                <a href={project.link} className="fp-link">VIEW PROJECT &rarr;</a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-  </div>
-);
+  );
 };
 
 export default Projects;
