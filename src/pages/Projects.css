@@ -1,0 +1,458 @@
+.experience-section {
+  padding: var(--space-24) 0;
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  margin-top: var(--space-24);
+}
+
+.experience-header {
+  margin-bottom: var(--space-16);
+}
+
+.experience-title {
+  font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.5fr 200px;
+  gap: var(--space-6);
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.exp-number {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  letter-spacing: 0.1em;
+}
+
+.exp-company-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.exp-company {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.exp-role {
+  font-size: 0.75rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.exp-details-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 600px;
+}
+
+.exp-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+}
+
+.exp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.exp-pill {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.4em 0.8em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.exp-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.exp-tool {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.1em;
+  font-family: var(--font-primary);
+}
+
+.exp-meta-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.exp-date {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+}
+
+.exp-link {
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-primary);
+  transition: var(--transition-fast);
+}
+
+.exp-link:hover {
+  opacity: 0.7;
+}
+
+.exp-status {
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .experience-item {
+    grid-template-columns: 60px 1fr 1fr;
+    grid-template-areas: 
+      "num company date"
+      ". details details";
+  }
+
+  .exp-number { grid-area: num; }
+  .exp-company-col { grid-area: company; }
+  .exp-meta-col { 
+    grid-area: date; 
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-2);
+  }
+  .exp-details-col { 
+    grid-area: details; 
+    margin-top: var(--space-4);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-item {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "num"
+      "company"
+      "date"
+      "details";
+    gap: var(--space-4);
+    padding: var(--space-8) 0;
+  }
+  
+  .exp-number { margin-bottom: -0.5rem; }
+  .exp-meta-col { flex-direction: row; align-items: center; justify-content: flex-start; }
+}
+
+/* Case Studies Section */
+.case-studies-section {
+  padding: var(--space-24) 0 var(--space-12) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.case-studies-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-16);
+}
+
+.case-studies-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.case-studies-subtitle {
+  font-size: 0.75rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.case-study-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-image-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  aspect-ratio: 4/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cs-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.case-study-card:hover .cs-image {
+  transform: scale(1.03);
+}
+
+.cs-meta-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.cs-number, .cs-year {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  letter-spacing: 0.1em;
+}
+
+.cs-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.cs-tags {
+  font-size: 0.65rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.cs-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.cs-link {
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-primary);
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+
+.cs-link:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .case-studies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+  .case-studies-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+/* Frontend Products Section */
+.frontend-products-section {
+  padding: var(--space-24) 0;
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border);
+}
+
+.frontend-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-16);
+}
+
+.frontend-products-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.frontend-products-subtitle {
+  font-size: 0.75rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.frontend-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.frontend-product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-image-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  aspect-ratio: 4/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fp-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.frontend-product-card:hover .fp-image {
+  transform: scale(1.03);
+}
+
+.fp-meta-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.fp-number, .fp-year {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  letter-spacing: 0.1em;
+}
+
+.fp-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.fp-tags {
+  font-size: 0.65rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.fp-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.fp-link {
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-family: var(--font-primary);
+  transition: var(--transition-fast);
+  display: inline-block;
+}
+
+.fp-link:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .frontend-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .frontend-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .frontend-products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}

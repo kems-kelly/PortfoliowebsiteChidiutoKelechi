@@ -1,0 +1,47 @@
+:root {
+  /* Colors - Light Warm Theme Default (matching image background) */
+  --color-bg-primary: #e8e6df; /* Warm off-white from image */
+  --color-bg-secondary: #101828;
+  --color-text-primary: #101828; /* Almost black */
+  --color-text-secondary: #5a5a5a; /* Dark gray for small text */
+  --color-accent: #000000; /* Black for buttons */
+  --color-accent-hover: #333333;
+  --color-border: rgba(0, 0, 0, 0.1); 
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem;  /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-8: 2rem;    /* 32px */
+  --space-12: 3rem;   /* 48px */
+  --space-16: 4rem;   /* 64px */
+  --space-24: 6rem;   /* 96px */
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --radius-pill: 500px; /* For capsule buttons */
+
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+[data-theme='dark'] {
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #171717;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a3a3a3;
+  --color-border: #262626;
+  --color-accent: #ffffff;
+}
