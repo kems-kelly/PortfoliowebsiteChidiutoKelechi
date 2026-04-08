@@ -5,7 +5,7 @@ import './Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import Frame from '../assets/Frame.png';
+import frame from '../assets/frame.png';
 import healthaxis from '../assets/healthaxis.png';
 import body from '../assets/body.png';
 import velauraImg from '../assets/velaura.png';
@@ -17,7 +17,7 @@ const caseStudies = [
     title: 'KoloFunds',
     tags: 'Save Strictly, Live Freely',
     description: 'Designed KoloFunds as a simple, goal-based savings platform that makes saving effortless. Focused on clean visuals, quick setup, and gentle nudges to encourage habit formation. The result an intuitive experience that helps users save strictly and stay consistent without overthinking it.',
-    image: Frame,
+    image: frame,
     link: 'https://www.behance.net/gallery/232525501/KoloFund-Fintech-Savings-App'
   },
   {
@@ -46,7 +46,7 @@ const frontendProjects = [
     title: 'KoloFunds',
     tags: 'Save Strictly, Live Freely',
     description: 'Designed KoloFunds as a simple, goal-based savings platform that makes saving effortless. Focused on clean visuals, quick setup, and gentle nudges to encourage habit formation. The result an intuitive experience that helps users save strictly and stay consistent without overthinking it.',
-    image: Frame,
+    image: frame,
     link: 'https://kolofunds.framer.website/'
   },
   {

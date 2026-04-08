@@ -5,7 +5,7 @@ import './Navbar.css';
 import logo from '../assets/logo.png';
 
 // User's CV location
-import cvFile from '../assets/KemaCV.pdf';
+import cvFile from '../assets/kema-cv.pdf';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

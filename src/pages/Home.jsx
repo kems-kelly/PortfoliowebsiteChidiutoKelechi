@@ -3,8 +3,8 @@ import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './Home.css';
-import portfolioImgs from '../assets/portfolioImgs.png';
-import cvFile from '../assets/KemaCV.pdf';
+import portfolioImgs from '../assets/portfolio-imgs.png';
+import cvFile from '../assets/kema-cv.pdf';
 
 const Home = () => {
   const containerRef = useRef(null);
