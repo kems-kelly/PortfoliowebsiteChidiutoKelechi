@@ -31,6 +31,7 @@
 .projects-tabs {
   display: flex;
   gap: var(--space-2);
+  
 }
 
 .tab-btn {
@@ -189,20 +190,56 @@
   .projects-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-8);
+    gap: var(--space-6);
+    padding: var(--space-8) 0;
   }
-  
+
+  .projects-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .projects-tabs {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .tab-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
   .project-row {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  
+
   .project-thumbnail {
     aspect-ratio: 21/9;
   }
-  
+
   .project-link-col {
     justify-content: flex-start;
+  }
+
+  .project-index {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-tabs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .tab-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.40rem;
+  }
+
+  .projects-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 }
 
