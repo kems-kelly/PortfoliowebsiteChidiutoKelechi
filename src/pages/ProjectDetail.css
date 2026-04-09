@@ -1,27 +1,43 @@
-.project-detail {
-  padding-top: var(--space-24);
+.project-detail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: var(--color-bg-primary);
-  min-height: 100vh;
+  z-index: 2000;
+  overflow-y: auto;
+  padding-top: var(--space-24);
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 .back-btn {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  background: none;
-  border: none;
+  background: transparent;
+  border: 1px solid var(--color-border);
   font-family: var(--font-primary);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   cursor: pointer;
-  padding: var(--space-4) 0;
-  transition: color var(--transition-fast);
+  padding: 0.6rem 1.6rem;
+  border-radius: var(--radius-pill); /* Pill as requested */
+  transition: all var(--transition-fast);
   margin-bottom: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .back-btn:hover {
-  color: var(--color-text-primary);
+  background-color: #000;
+  color: #fff;
 }
 
 .detail-hero {
@@ -31,7 +47,7 @@
 .detail-hero-image {
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl); /* Rounded as requested */
   overflow: hidden;
   background-color: #000;
   margin-bottom: var(--space-12);
@@ -45,16 +61,19 @@
 
 .detail-tags {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
   margin-bottom: var(--space-6);
 }
 
-.detail-tags span {
-  font-size: 0.7rem;
+.detail-tag-pill {
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #a3a3a3;
   text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill); /* Pill for unity */
 }
 
 .detail-title {
@@ -128,7 +147,7 @@
 
 .process-item p {
   font-size: 1.1rem;
-  color: var(--color-text-primary);
+  color: #a3a3a3; /* Gray as requested */
 }
 
 /* Tools */
@@ -138,16 +157,21 @@
   gap: var(--space-3);
 }
 
-.tool-box {
+.tool-pill {
   padding: 0.6rem 1.6rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-pill); /* Pill for unity */
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-text-primary);
-  background-color: var(--color-bg-secondary);
+  background-color: transparent;
+  transition: all var(--transition-fast);
 }
 
+.tool-pill:hover {
+  background-color: #000;
+  color: #fff;
+}
 
 @media (max-width: 768px) {
   .detail-title {

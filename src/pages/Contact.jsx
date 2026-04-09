@@ -96,9 +96,7 @@ const Contact = () => {
           </h1>
           
           <p className="contact-desc">
-            Actively looking for PM, Product Design, and AI Engineering<br/>
-            opportunities. Open to full-time roles or freelance projects<br/>
-            based in Singapore or remote.
+           Actively seeking opportunities in Product Management, Product Design, and AI Engineering. Open to full-time roles and freelance projects, both remote and on-site.
           </p>
 
           <div className="email-wrapper" style={{ marginBottom: '1rem' }}>
@@ -135,8 +133,7 @@ const Contact = () => {
 
       <footer className="contact-premium-footer">
         <div className="container footer-grid">
-         
-          
+
           <div className="footer-links-group">
             <span className="footer-label">SOCIAL</span>
             <div className="footer-links">
@@ -153,6 +150,7 @@ const Contact = () => {
               <span className="footer-text">REMOTE / WORLDWIDE</span>
             </div>
           </div>
+
         </div>
       </footer>
 

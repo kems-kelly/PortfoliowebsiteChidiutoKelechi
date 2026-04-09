@@ -52,8 +52,8 @@
 
 .contact-title {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 10vw, 8rem);
-  font-weight: 800;
+  font-size: clamp(3rem, 10vw, 8rem); /* Keeping the massive size for contact but changing weight */
+  font-weight: 500;
   line-height: 0.9;
   margin-bottom: var(--space-8);
   color: var(--color-text-primary);
@@ -174,8 +174,8 @@
 
 .footer-logo-text {
   font-family: var(--font-heading);
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 500;
   margin-bottom: var(--space-4);
   line-height: 1;
   letter-spacing: -0.05em;
@@ -236,12 +236,13 @@
   .contact-buttons {
     flex-direction: column;
   }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-12);
     text-align: center;
   }
-  
+
   .footer-links {
     align-items: center;
   }
@@ -343,16 +344,16 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #000;
+  border-color: var(--color-text-primary);
 }
 
 .submit-email-btn {
   margin-top: var(--space-2);
   padding: 1rem;
-  background-color: black;
-  color: white;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   font-weight: 600;
   font-family: var(--font-primary);
   font-size: 0.85rem;

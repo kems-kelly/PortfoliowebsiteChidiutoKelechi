@@ -28,13 +28,8 @@ const experiences = [
     date: '2018 — 2019',
     role: 'UI/UX Design • Frontend Development',
     description: 'Worked on early-stage digital products, contributing to UI design and frontend implementation while building a strong foundation in responsive design and usability.'
-  },
-  {
-    company: 'Aureus Group',
-    date: 'FEB 2022 — APR 2023',
-    role: 'UI/UX Designer',
-    description: 'Product research, user story development, and feature logic across customer-facing SaaS products.'
   }
+
 ];
 
 const competencies = [
